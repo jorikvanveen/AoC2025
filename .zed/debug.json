@@ -1,0 +1,42 @@
+// Project-local debug tasks
+//
+// For more documentation on how to configure debug tasks,
+// see: https://zed.dev/docs/debugger
+[
+  {
+    "adapter": "CodeLLDB",
+    "label": "cargo run -p Aoc2025",
+    "build": {
+      "label": "cargo run -p Aoc2025",
+      "command": "cargo",
+      "args": [
+        "build",
+        "--package",
+        "Aoc2025"
+      ],
+      "env": {
+        "RUSTC_TOOLCHAIN": "/nix/store/i6xakg19vy8vc2g211yr9d5nmb0wk7v0-rustc-1.91.1"
+      },
+      "cwd": "/home/main/shared/personal/Projects/Aoc2025",
+      "use_new_terminal": false,
+      "allow_concurrent_runs": false,
+      "reveal": "always",
+      "reveal_target": "dock",
+      "hide": "never",
+      "tags": [],
+      "shell": "system",
+      "show_summary": false,
+      "show_command": true
+    },
+    "sourceLanguages": [
+      "rust"
+    ],
+    "program": "./target/debug/Aoc2025",
+    "args": [
+      "--part",
+      "2",
+      "day1"
+    ],
+    "request": "launch"
+  }
+]
