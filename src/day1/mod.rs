@@ -1,5 +1,3 @@
-use std::ops::Rem;
-
 use crate::{DayImpl, InputType};
 
 pub struct Day {
