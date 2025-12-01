@@ -1,11 +1,15 @@
+use crate::{DayImpl, InputType};
 
-use crate::DayImpl;
+pub struct Day {
+    input_type: InputType,
+}
 
-pub struct Day {}
+const INPUT: &str = include_str!("input");
+const EX_INPUT: &str = include_str!("example_input");
 
 impl Day {
-    pub fn new() -> Self {
-        Self {}
+    pub fn new(input_type: InputType) -> Self {
+        Self { input_type }
     }
 }
 

@@ -21,7 +21,10 @@ struct Args {
     day: Day,
 
     #[arg(short, long)]
-    part: Part
+    part: Part,
+
+    #[arg(short, long)]
+    input_type: InputType
 }
 
 #[derive(Subcommand, Debug)]
@@ -63,22 +66,40 @@ pub(crate) trait DayImpl {
     fn part_two(&self) -> String;
 }
 
+#[derive(Debug, Clone, Copy)]
+pub(crate) enum InputType {
+    Actual,
+    Example
+}
+
+impl FromStr for InputType {
+    type Err = String;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "actual" | "a" => Ok(InputType::Actual),
+            "example" | "e" => Ok(InputType::Example),
+            _ => Err(format!("Invalid input type: {}", s))
+        }
+    }
+}
+
 fn main() {
     let args = Args::parse();
 
     let day_impl: Box<dyn DayImpl> = match args.day {
-        Day::Day1 => Box::new(day1::Day::new()),
-        Day::Day2 => Box::new(day2::Day::new()),
-        Day::Day3 => Box::new(day3::Day::new()),
-        Day::Day4 => Box::new(day4::Day::new()),
-        Day::Day5 => Box::new(day5::Day::new()),
-        Day::Day6 => Box::new(day6::Day::new()),
-        Day::Day7 => Box::new(day7::Day::new()),
-        Day::Day8 => Box::new(day8::Day::new()),
-        Day::Day9 => Box::new(day9::Day::new()),
-        Day::Day10 => Box::new(day10::Day::new()),
-        Day::Day11 => Box::new(day11::Day::new()),
-        Day::Day12 => Box::new(day12::Day::new()),
+        Day::Day1 => Box::new(day1::Day::new(args.input_type)),
+        Day::Day2 => Box::new(day2::Day::new(args.input_type)),
+        Day::Day3 => Box::new(day3::Day::new(args.input_type)),
+        Day::Day4 => Box::new(day4::Day::new(args.input_type)),
+        Day::Day5 => Box::new(day5::Day::new(args.input_type)),
+        Day::Day6 => Box::new(day6::Day::new(args.input_type)),
+        Day::Day7 => Box::new(day7::Day::new(args.input_type)),
+        Day::Day8 => Box::new(day8::Day::new(args.input_type)),
+        Day::Day9 => Box::new(day9::Day::new(args.input_type)),
+        Day::Day10 => Box::new(day10::Day::new(args.input_type)),
+        Day::Day11 => Box::new(day11::Day::new(args.input_type)),
+        Day::Day12 => Box::new(day12::Day::new(args.input_type)),
     };
 
     match args.part {
