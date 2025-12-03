@@ -34,8 +34,8 @@
     "program": "./target/debug/Aoc2025",
     "args": [
       "--part",
-      "2",
-      "day1"
+      "1",
+      "day3"
     ],
     "request": "launch"
   }
