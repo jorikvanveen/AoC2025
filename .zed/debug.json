@@ -33,9 +33,11 @@
     ],
     "program": "./target/debug/Aoc2025",
     "args": [
+      "--input-type",
+      "example",
       "--part",
       "1",
-      "day3"
+      "day4"
     ],
     "request": "launch"
   }
