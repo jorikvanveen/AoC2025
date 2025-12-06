@@ -36,8 +36,8 @@
       "--input-type",
       "example",
       "--part",
-      "1",
-      "day4"
+      "2",
+      "day6"
     ],
     "request": "launch"
   }
